@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aliai - All in One</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Arial; text-align:center; background:#0f0f0f; color:white; padding:15px}
+.logo{font-size:38px; font-weight:bold; color:#a855f7}
+.logo span{color:#22c55e}
+input,select{width:92%; padding:14px; border-radius:12px; border:none; font-size:16px; margin:5px}
+button{padding:14px 20px; border:none; border-radius:12px; font-size:16px; cursor:pointer; margin:5px; font-weight:bold}
+.green{background:#22c55e; color:white}
+.purple{background:#a855f7; color:white}
+.red{background:#ef4444; color:white}
+.box{background:white; color:black; padding:15px; border-radius:15px; margin-top:15px; text-align:left; white-space:pre-line; line-height:1.7}
+video{width:100%; border-radius:15px; margin-top:15px}
+.price{background:#1e1e1e; padding:15px; border-radius:15px; border:1px solid #a855f7; margin-top:15px}
+</style>
+</head>
+<body>
+<div class="logo">Ali<span>ai</span></div>
+<p>By Muhammad Tanveer | Thamam Ka Tool</p>
+
+<input id="topic" placeholder="Topic: Misaal - Sabar ki Fazilat">
+<br>
+<select id="mode">
+<option value="tiktok">🔥 TikTok Mode - 1 Minute</option>
+<option value="youtube">🎬 YouTube Mode - 10-20 Minute</option>
+</select>
+<br>
+<button class="purple" onclick="makeScript()">Script Banao</button>
+<button class="green" onclick="speak()">🔊 Voice Suno</button>
+<button class="red" onclick="makeVideo()">🎬 Video Banao</button>
+
+<div class="box" id="result">Yahan Script Aayega...</div>
+
+<video id="myVideo" controls autoplay muted loop playsinline>
+<source src="https://cdn.coverr.co/videos/coverr-islamic-architecture-1584/1080p.mp4" type="video/mp4">
+</video>
+
+<div class="price">
+<h3>🔥 Aliai PRO - 999 PKR / Month</h3>
+<p>TikTok + YouTube + Voice + Script - Sab Kuch</p>
+<a href="https://wa.me/923266583257?text=Assalam o Alaikum Tanveer Bhai, Mujhe Aliai PRO (Thamam Ka) chahiye">
+<button class="green">WhatsApp Par Order Karo - 0326-6583257</button>
+</a>
+</div>
+
+<script>
+let finalScript = "";
+function makeScript(){
+let t = document.getElementById('topic').value;
+let mode = document.getElementById('mode').value;
+if(!t){alert('Pehle Topic likho!'); return;}
+if(mode=="tiktok"){
+finalScript = "Assalam o Alaikum! Aaj ki video: " + t + ". Yaad rakho, jo sabar karta hai Allah uske sath hai. Mehnat karo, dua karo. Aliai ko follow karo!";
+} else {
+finalScript = "YOUTUBE LONG VIDEO - Topic: " + t + "\n\nPART 1 (0-2 Min) - Intro: Assalam o Alaikum dosto, aaj hum baat karenge " + t + " ke bare me.\n\nPART 2 (2-5 Min) - Kahani: Is ki peeche ki kahani suno...\n\nPART 3 (5-8 Min) - 3 Sabak: Pehla sabak sabar, dosra mehnat, teesra dua.\n\nPART 4 (8-12 Min) - Misaal: Ek shakhs ne kaise kamyabi hasil ki...\n\nPART 5 (12-15 Min) - Akhri Paigham: Aaj se himmat mat haaro.\n\nPART 6 (15-20 Min) - Dua + Like, Subscribe ka kaho.\n\nTotal 6 Parts = 20 Minute ki Full Video Tayyar!";
+}
+document.getElementById('result').innerText = finalScript;
+}
+function speak(){
+if(!finalScript){alert('Pehle Script Banao!'); return;}
+let u = new SpeechSynthesisUtterance(finalScript);
+u.lang = 'ur-PK';
+speechSynthesis.speak(u);
+}
+function makeVideo(){
+if(!finalScript){alert('Pehle Script Banao!'); return;}
+alert('Video Tayyar Hai! Upar wali video ke sath apni voice lagao aur 10-20 min ke liye isko 10 dafa repeat karo. PRO me auto-join milega.');
+document.getElementById('myVideo').play();
+}
+</script>
+</body>
+</html>
